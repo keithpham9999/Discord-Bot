@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "@discordjs/core": "^1.0.0",
+    "discord.js": "^14.12.1",
+    "discord.js-selfbot-v13": "^2.14.9",
+    "dotenv": "^16.3.1",
+    "download": "^8.0.0"
+  },
+  "name": "botjs",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main": "npm run main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
