@@ -12,4 +12,26 @@ const State = {
     "https://free-proxy-list.net/anonymous-proxy.html"
   ];
   
+
+  async function fetchBody(ProxySite) {
+    let psRequest = await axios({
+      url: ProxySite,
+      headers: {
+        "user-agent": "Mozilla"
+      },
+      method: "GET"
+    }).catch(() => {
+      throw new Error(`Error in '${ProxySite}' request.`);
+    });
+  
+    let psBody = psRequest.data;
+  
+    State.requests.push({
+      site: ProxySite,
+      status: psRequest.status
+    });
+  
+    return psBody;
+  }
+  
   
