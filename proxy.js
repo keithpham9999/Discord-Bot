@@ -34,4 +34,14 @@ const State = {
     return psBody;
   }
   
+  function validateProxyHost(ProxyHost = String) {
+    if (
+      !ProxyHost.match("([0-9]+).([0-9]+).([0-9]+).([0-9]+)") ||
+      ProxyHost.length <= 10
+    ) {
+      return false;
+    }
+    return true;
+  }
   
+ 
