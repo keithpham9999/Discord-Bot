@@ -93,7 +93,7 @@ const State = {
 
 
 
-  async function GetRandomProxy() {
+  async function getRandomProxy() {
     // RETURN_MASK EXAMPLES = <ip>:<port>, IP:<ip>|PORT:<port>
   
     let RandomProxy = "";
@@ -117,6 +117,10 @@ const State = {
   }
   
 
+  
+  module.exports.GetRandom = GetRandomProxy;
+  module.exports.State = State;
+  module.exports.Scrape = ScrapeProxies;  
 
 
 
