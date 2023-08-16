@@ -93,4 +93,31 @@ const State = {
 
 
 
- 
+  async function GetRandomProxy() {
+    // RETURN_MASK EXAMPLES = <ip>:<port>, IP:<ip>|PORT:<port>
+  
+    let RandomProxy = "";
+  
+    if (Object.keys(State.list).length <= 0) {
+      await ScrapeProxies(ProxySites).then(() => {
+        RandomProxy =
+          State.list[Math.floor(Math.random() * Object.keys(State.list).length)];
+        let ip = RandomProxy.split(":")[0];
+        let port = RandomProxy.split(":")[1];
+  
+        return { ip, port };
+      });
+    }
+    RandomProxy =
+      State.list[Math.floor(Math.random() * Object.keys(State.list).length)];
+    let ip = RandomProxy.split(":")[0];
+    let port = RandomProxy.split(":")[1];
+  
+    return { ip, port };
+  }
+  
+
+
+
+
+
