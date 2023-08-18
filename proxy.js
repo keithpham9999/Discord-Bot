@@ -17,7 +17,7 @@ const State = {
 
 
 
-  async function fetchBody(ProxySite) {
+  async function fetchBody(proxySite) {
     let psRequest = await axios({
       url: ProxySite,
       headers: {
@@ -90,7 +90,7 @@ const State = {
   };
   
 
-
+ 
 
 
   async function getRandomProxy() {
@@ -117,8 +117,8 @@ const State = {
   }
   
 
-  
-  module.exports.GetRandom = GetRandomProxy;
+
+  module.exports.getRandom = getRandomProxy;
   module.exports.State = State;
   module.exports.Scrape = ScrapeProxies;  
 

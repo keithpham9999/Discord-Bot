@@ -7,6 +7,9 @@ const { Client } = require('discord.js-selfbot-v13')
 const client = new Client({ checkUpdate: false, })
 
 
+
+
+
  
 
 /**
@@ -22,7 +25,7 @@ async function startJob() {
     //This mapping will return all guilds from my discord with specified token
 
     const all_guilds = client.guilds.cache.map(guild => guild)
-    console.log(all_guilds[3])
+    console.log(all_guilds[3].name)
 
 }
 
@@ -74,13 +77,13 @@ async function changeProxy() {
         // request body
   }
 
-  
-
-client.on('ready', changeProxy)
 
 
+client.on('ready', startJob)
 
 
-client.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GqA4OK.jHkJW9Kt_Qm85R-z-i0MftRiA2zkbqjaLAvGHY')
+
+
+client.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GOkQpq.kvOuawvDp4lcNLgYDzq0VONWddvyXfl_hiKGSY')
 
 module.exports = filterBot

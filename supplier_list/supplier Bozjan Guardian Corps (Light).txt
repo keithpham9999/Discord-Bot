@@ -2,8 +2,6 @@ Bozjan Guardian Corps (Light)
 
 keithfam12
 vpro611
-Midana
-Wattson
 andy679
 alvierra
 johnrivs
@@ -141,7 +139,7 @@ pommedor
 el_diasto
 basso
 myuriaff
-Arwen21
+arwen21_uk
 natsumimi
 roidridley
 chagrilled
@@ -388,7 +386,7 @@ pineapple7899
 blackangel320
 werpmk2
 akatsuyo
-ZC
+zeceee
 miyamirage
 algraud
 callum
@@ -510,7 +508,7 @@ eonyx94
 gwenasaurus
 eddnav
 CamConfirm
-Moni
+moni_alali
 ventusmusic
 ynf
 Münzmarie
@@ -574,7 +572,7 @@ clinnger
 MachoSubmarine
 jasp.er
 medam
-Callum
+rochey28
 Herrojl
 stingaang
 .pekks663
@@ -805,7 +803,6 @@ damoo
 emmie._.
 guiltculture
 suspiciousewok
-idolad
 silvris_01
 5coloraggro
 loopatroopa
@@ -866,11 +863,11 @@ monochromic
 daretoreal
 mwonka
 baryh
-VesterbroDK
+vesterbrodk
 quantumturtlepi
 voidvern
 drizzlyhook9151
-LenCoka
+sayarana
 skusku
 arikha
 anas_gh
@@ -912,7 +909,6 @@ stykx
 massiveoddball
 delektrix
 skomanex
-Teana
 sakurakinkai
 vbored
 .riuriu.
@@ -932,7 +928,7 @@ traysercassa
 freddofoo
 Norton
 rhotgeim
-jazz_heart
+jasminevalentine
 Tzirah
 zsibic
 farideh
@@ -974,7 +970,6 @@ lunardour
 isagarai
 steenhenge
 alizarin_crimson_
-yfa720
 kasuuchan
 milkers1074
 raxzy
@@ -986,7 +981,6 @@ korobar
 felonxiv
 renn_rao
 tardion
-kwokie
 isevery
 b0gdann
 .avyon
@@ -996,10 +990,16 @@ niabach
 anood
 augor
 prof.weid
-helio.exe
+lnthhu
 ecewankenobi
 ZuyoRetr0【ａｓ】
 jefell
+scottandre
+luna808
+kalka1
+sh1varra
+muj6
+_dhoome
 riaxis
 bad.update
 mala0410
@@ -1250,7 +1250,6 @@ luwukino.exe
 Irisnaevi
 tani1409
 yazu
-Tasha
 strawberryliv
 kyte
 bella42
@@ -1296,7 +1295,7 @@ Kuhaku
 druodin
 Polarispiper
 .defaye
-[Z] Matakai Ravenshield
+zmatakairavenshield
 davebave
 amelia_franzi
 blaise_dome
@@ -1384,7 +1383,7 @@ kyni
 Mana
 doe_el
 naborugerudo
-takzg5
+takzuu
 obivanpd
 trescanette
 titianyu
@@ -1511,7 +1510,7 @@ kebuchu
 hiimthedoctor27
 woodwardo
 aizenz
-gavsquirrel
+greisquirrel
 Holy
 wuffi7707
 owlcookie
@@ -1536,7 +1535,7 @@ ergotu
 grieverlioness
 normiegirl
 sosch
-schmidi
+schmidi_96
 neviutz
 akioinoue
 diruuo
@@ -1614,7 +1613,6 @@ mountainsong
 ziddi_uvio
 Alma Mater
 niomm
-iceboyx3
 kenjimyst
 Happyandfree
 Belamor
@@ -1889,7 +1887,7 @@ yumtastic
 liff
 Kurai
 Reve
-不够深的深海鱼
+woshizuowangdao
 uchika
 kiliadrake
 wyti
@@ -2000,6 +1998,9 @@ onamiskynano
 SielaGyvennas
 vikara
 Y'zard Kai
+Midana
+Wattson
+Light
 duk
 kuro.kun
 Red34
@@ -2122,7 +2123,7 @@ eichineru
 todi
 asunak
 alarara
-Kris
+krispyral
 Nana
 gaaldrion
 nhekno
@@ -2148,7 +2149,6 @@ aeshl
 marize
 alien5801
 ice_arrow
-Shaela
 dango_n_stuff
 tije
 Achan
@@ -2215,7 +2215,7 @@ aokiju
 selen
 moko.oko
 _xal
-Artorias
+liveyoung_
 jocearose
 .gofika
 joseerachere
@@ -2386,7 +2386,7 @@ peppi86
 Snake
 rezef95
 bonzojoe
-Syu
+syu357
 nemelys
 sumsu
 Ma'curi Gatz
@@ -2582,7 +2582,7 @@ _adamu_
 melvis91
 latandris
 harke
-elusmus
+j3ster.j
 .autofocus
 WaterMaster
 lilyleapfrog
@@ -2845,7 +2845,7 @@ korzor
 abyssalcaptain
 orghana
 neokyno
-Cap
+capars
 anewmoth
 tiava
 inconveniencedziggy
@@ -2857,7 +2857,7 @@ leiurusgrey
 Sulimo
 akashi_o
 fiendmaw
-ruhiger_stern
+sternenmeer
 kuuji
 andrep.di
 shintigo
@@ -3218,4 +3218,3 @@ zooid
 ash4035
 armoredpanda
 maikkou
-Light
