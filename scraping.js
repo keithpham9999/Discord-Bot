@@ -1,15 +1,34 @@
 const { Client } = require('discord.js-selfbot-v13')
-const client = new Client({ checkUpdate: false, })
+const client1 = new Client({ checkUpdate: false, })
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 const fs = require('fs/promises')
 
-const mess = 'Hi! Sorry to disturb. Is your FC looking for member ?'
+const proxy = require('./testProxy1')
 
+
+
+const getRandomMessage = () => {
+  const mess = ['Hi! Sorry to disturb you. Are you selling FFXIV weapons?',
+ 'Hello, I am from Bun Stuff HQ server. I am just wondering if you are interested in selling gear, food or potions?',
+'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell FF14 items?',
+'Heyyy, I hope you dont mind. I am currently looking to buy FF14 items for a fresh start of season',
+'Nice to meet yaaaa. I am looking to buy items from FFXIV, if you are interested, please let me knowww']
+
+const random = Math.floor(Math.random() * mess.length)
+
+const random_message = mess[random]
+
+return  { random_message }
+}
+
+
+ 
 
 function getRandomInclusive(min, max) {
+
   return Math.random() * (max - min + 1) + min // The maximum is inclusive and the minimum is inclusive
 }
 
@@ -25,28 +44,27 @@ function sleep(ms) {
 async function scrapeJob() {
 
 
-  const all_guilds = client.guilds.cache.map(guild => guild)
-  
+  const all_guilds = client1.guilds.cache.map(guild => guild)
 
   //console.log(all_guilds[2].name)
   //const all_mem = all_guilds[3].members.cache.map(member => member)
-  
 
-  readline.question(`Please enter your guild scraping index: `, async guild_num => {
-    console.log(`Guild index number is: ${guild_num}`);
+    for (let i = 0; i < all_guilds.length; i++) {
 
-
-
-    const all_mem = await all_guilds[guild_num].members.fetch()   //Change guild index to change guild
+    const all_mem = await all_guilds[i].members.fetch()   //Change guild index to change guild
     const mem_list = Array.from(all_mem)
-    console.log('\nGuild name: ' + all_guilds[guild_num].name + '\nAll members including bots: ' + mem_list.length)
+    console.log('\nGuild index: ' + i + '\nGuild name: ' + all_guilds[i].name + '\nAll members including bots: ' + mem_list.length + '\n')
     
-    let content = all_guilds[guild_num].name + '\n\n'             //Also change guild index for this one
-    fs.writeFile('C:\\Users\\RnD PC\\BotJS\\supplier_list\\supplier ' + all_guilds[guild_num].name + '.txt', content, err => {    //Change guild index here as well
+    }
+    
+
+
+/*     let content = all_guilds[guild_num].name + '\n\n'             //Also change guild index for this one
+    fs.writeFile('C:\\Users\\RnD PC\\BotJS\\supplier_list_user2\\supplier ' + all_guilds[guild_num].name + '.txt', content, err => {    //Change guild index here as well
       if (err) {
         console.log(err)
       }
-    })
+    }) */
 
 
 
@@ -84,11 +102,11 @@ async function scrapeJob() {
 
 
 
-    for (const mem of mem_list) {
+/*     for (const mem of mem_list) {
       content = (mem[1].user.username).toString() + '\n'
 
       if (mem[1].user.bot == false && mem[1].user.system == false) {
-        await fs.appendFile('C:\\Users\\RnD PC\\BotJS\\supplier_list\\supplier ' + all_guilds[guild_num].name + '.txt', content, err => {
+        await fs.appendFile('C:\\Users\\RnD PC\\BotJS\\supplier_list_user2\\supplier ' + all_guilds[guild_num].name + '.txt', content, err => {
           //Change guild index here too with variable guild_num
           if (err) {
             console.log(err)
@@ -98,18 +116,16 @@ async function scrapeJob() {
         })
       }
 
-    }
+    } */
 
 
-  }) //These brackets are for the read statement
+   //These brackets are for the read statement
 }
 
 
 
 async function sendMessage() {
-  
-  const all_guilds = client.guilds.cache.map(guild => guild)
-
+  const all_guilds = client1.guilds.cache.map(guild => guild)
   readline.question(`Please enter your guild scraping index: `, async guild_num => {
     console.log(`Guild index number is: ${guild_num}`);
 
@@ -121,48 +137,64 @@ async function sendMessage() {
 
   
 
-  for (const [index, mem] of mem_list.entries()) {
-    if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1137318873117495366') {
-       
-
-
-      client.users.fetch(mem[1].user.id, false).then((user) => {
-        user.send(mess);
+  for (let [index, mem] of mem_list.entries()) {
+    if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1096344243825553439') {
+        
+/*       client1.users.fetch(mem[1].user.id, false).then((user) => {
+        user.send(mess)
         console.log('Message sent to ' + user.username)
        })
        .catch((e) => {
 
-          console.log(e.message)
+        console.log(e.message)
+        console.log('\nError found!')
+        
+     }) */
 
-       })
-       
-      
-      
+     const giveItABreak = async () => {
+        if (index % 3 != 0) {
+            await sleep(getRandomInclusive(600000.823749823, 900000.287645378))
+        }
+        else if (index == 0){
+          
+            await sleep(getRandomInclusive(1000, 5000))
+        }
+        else if (index % 30 == 0 && index != 0){
+            await proxy.changeProxy()
+        }
+        else {
+          await sleep(getRandomInclusive(180000.901235434, 300000.021128729))
+        }
+     }
 
+     client1.users.fetch( mem[1].user.id, false )
+     .then( async ( user ) => {
+        try{
+          const { random_message } = getRandomMessage()
+            await user.send(random_message)
+            console.log(` Message sent to ${ user.username } `) 
+         } catch (err) {
+            console.log(`Internal stack error found at sending message`)
+            console.log(err)
+         }
+     } )
+     .catch(err => console.log(`I found an error ${err.message}`))
+
+
+     await giveItABreak()
 
     }
-
-    if (index % 3 != 0) {
-    await sleep(getRandomInclusive(600000.823749823, 900000.287645378))
-    }
-    else if (index == 0){
-      await sleep(getRandomInclusive(1000.772949823, 3000.000245378))
-  }
-    else {
-      await sleep(getRandomInclusive(300000.901235434, 600000.021128729))
-    }
-
-  }
+}
 
   })
 
 }
 
-client.on('ready', sendMessage)
+client1.on('ready', sendMessage)
 
 
 
-client.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GOkQpq.kvOuawvDp4lcNLgYDzq0VONWddvyXfl_hiKGSY')
+client1.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GJ_NvZ.HqOBGhNQDNQg_xyAdQC_vrEeHrz4hE1hZSlQjs')
 
 
 module.exports = scrapeJob

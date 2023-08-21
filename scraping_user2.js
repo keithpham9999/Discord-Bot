@@ -6,14 +6,19 @@ const readline = require('readline').createInterface({
 });
 const fs = require('fs/promises')
 
+const proxy = require('./testProxy')
+
+
+
+
 
 
 const getRandomMessage = () => {
-  const mess = ['Hi! Sorry to disturb you. Are you selling FFXIV weapons?',
- 'Hello, I am from Bun Stuff HQ server. I am just wondering if you are interested in selling gear, food or potions?',
-'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell FF14 items?',
-'Heyyy, I hope you dont mind. I am currently looking to buy FF14 items for a fresh start of season',
-'Nice to meet yaaaa. I am looking to buy items from FFXIV, if you are interested, please let me knowww']
+  const mess = ["Hey, are you by any chance selling ESO gold? This message is automated, so feel free to ignore it if it doesn't apply to you. Much love!", 
+  "Hello! Just a quick question – are you selling ESO gold? Please don't worry if you're not interested or if we're already in touch. Sending you a virtual hug!",
+  "Greetings! I'm curious, do you have ESO gold for sale? Please don't mind this automated message if it's not relevant to you or if we're already chatting. Sending a heart your way!",
+  "Hi there! Selling ESO gold, perhaps? No worries if this doesn't relate to you or if we're already in communication. Sending some positivity your way!", 
+  "Hey, quick question: are you selling ESO gold? Just a heads up that this message is automated, so don't worry if it's not applicable to you or if we're already connected. Sending you some virtual love!"]
 
 const random = Math.floor(Math.random() * mess.length)
 
@@ -21,7 +26,6 @@ const random_message = mess[random]
 
 return  { random_message }
 }
-
 
  
 
@@ -46,24 +50,23 @@ async function scrapeJob() {
 
   //console.log(all_guilds[2].name)
   //const all_mem = all_guilds[3].members.cache.map(member => member)
-  
-  
-  readline.question(`Please enter your guild scraping index: `, async guild_num => {
-    console.log(`Guild index number is: ${guild_num}`);
 
+    for (let i = 0; i < all_guilds.length; i++) {
 
-
-    const all_mem = await all_guilds[guild_num].members.fetch()   //Change guild index to change guild
+    const all_mem = await all_guilds[i].members.fetch()   //Change guild index to change guild
     const mem_list = Array.from(all_mem)
-    console.log('\nGuild name: ' + all_guilds[guild_num].name + '\nAll members including bots: ' + mem_list.length)
-
+    console.log('\nGuild index: ' + i + '\nGuild name: ' + all_guilds[i].name + '\nAll members including bots: ' + mem_list.length + '\n')
     
-    let content = all_guilds[guild_num].name + '\n\n'             //Also change guild index for this one
+    }
+    
+
+
+/*     let content = all_guilds[guild_num].name + '\n\n'             //Also change guild index for this one
     fs.writeFile('C:\\Users\\RnD PC\\BotJS\\supplier_list_user2\\supplier ' + all_guilds[guild_num].name + '.txt', content, err => {    //Change guild index here as well
       if (err) {
         console.log(err)
       }
-    })
+    }) */
 
 
 
@@ -101,7 +104,7 @@ async function scrapeJob() {
 
 
 
-    for (const mem of mem_list) {
+/*     for (const mem of mem_list) {
       content = (mem[1].user.username).toString() + '\n'
 
       if (mem[1].user.bot == false && mem[1].user.system == false) {
@@ -115,10 +118,10 @@ async function scrapeJob() {
         })
       }
 
-    }
+    } */
 
 
-  }) //These brackets are for the read statement
+   //These brackets are for the read statement
 }
 
 
@@ -157,6 +160,9 @@ async function sendMessage() {
         else if (index == 0){
             await sleep(getRandomInclusive(1000, 5000))
         }
+        else if (index % 30 == 0 && index != 0){
+            await proxy.changeProxy()
+        }
         else {
           await sleep(getRandomInclusive(180000.901235434, 300000.021128729))
         }
@@ -189,7 +195,7 @@ client1.on('ready', sendMessage)
 
 
 
-client1.login('MTA5NjM0NDI0MzgyNTU1MzQzOQ.Gpl4l6.vMKn4KbbbWEAXqnk9EYnbmYCiPTImWoqwyt9pU')
+client1.login('MTA5NjEwMDgzODI2MDM1MTA3Nw.GkavKi.KaocNQUuGszDsRhpdM1yxzEmlKESLQ0jUzMMfw')
 
 
 module.exports = scrapeJob

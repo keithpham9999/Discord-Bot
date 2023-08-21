@@ -17,7 +17,7 @@ const State = {
 
 
 
-  async function fetchBody(proxySite) {
+  async function fetchBody(ProxySite) {
     let psRequest = await axios({
       url: ProxySite,
       headers: {
@@ -41,7 +41,7 @@ const State = {
 
 
 
-  function validateProxyHost(ProxyHost = String) {
+  function ValidateProxyHost(ProxyHost = String) {
     if (
       !ProxyHost.match("([0-9]+).([0-9]+).([0-9]+).([0-9]+)") ||
       ProxyHost.length <= 10
@@ -93,7 +93,7 @@ const State = {
  
 
 
-  async function getRandomProxy() {
+  async function GetRandomProxy() {
     // RETURN_MASK EXAMPLES = <ip>:<port>, IP:<ip>|PORT:<port>
   
     let RandomProxy = "";
@@ -118,7 +118,7 @@ const State = {
   
 
 
-  module.exports.getRandom = getRandomProxy;
+  module.exports.GetRandom = GetRandomProxy;
   module.exports.State = State;
   module.exports.Scrape = ScrapeProxies;  
 

@@ -6,7 +6,8 @@
 const { Client } = require('discord.js-selfbot-v13')
 const client = new Client({ checkUpdate: false, })
 
-
+const proxyjs = require("./proxy");
+const axios = require("axios");
 
 
 
@@ -64,7 +65,7 @@ async function changeProxy() {
   
     // example proxy usage
     let Request = await axios({
-      url: "https://google.com/",
+      url: "https://discord.com/channels/268675600921657345/271255075794452480",
       method: "get",
       headers: { "user-agent": "Mozilla" },
       proxy: {
@@ -79,11 +80,11 @@ async function changeProxy() {
 
 
 
-client.on('ready', startJob)
+client.on('ready', changeProxy)
 
 
 
 
-client.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GOkQpq.kvOuawvDp4lcNLgYDzq0VONWddvyXfl_hiKGSY')
+client.login('MTA5NjM0NDI0MzgyNTU1MzQzOQ.GZ8h5H.MJVqHkyncXGghlbrBp0NaQGD4ohSvxKG06MSMM')
 
 module.exports = filterBot
