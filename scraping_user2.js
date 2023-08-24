@@ -5,8 +5,40 @@ const readline = require('readline').createInterface({
   output: process.stdout,
 });
 const fs = require('fs/promises')
+const axios = require('axios');
 
-const proxy = require('./testProxy')
+
+ 
+const apiKey = 'CAP-054372CAF1BC413F867F70D3C5E378CF';
+const captchaUrl = 'http://discord.com/';
+const websiteKey = '00000000-0000-0000-0000-000000000000';
+const fetchRequestContent = 'FETCH_REQUEST_CONTENT';
+
+
+async function solveCaptcha(){
+
+  axios.post('https://api.CapSolver.com/createTask', {
+    clientKey: apiKey,
+    task: {
+        type: 'HCaptchaTaskProxyLess',
+        websiteURL: captchaUrl,
+        websiteKey: websiteKey,
+        isInvisible: true,
+        getCaptcha: fetchRequestContent,
+    },
+})
+    .then((response) => {
+        const taskId = response.data.taskId;
+        console.log('Task created successfully. Task ID:', taskId);
+        // Continue to the next step
+    })
+    .catch((error) => {
+        console.error('Error creating task:', error.response.data);
+    });
+
+}
+
+
 
 
 
@@ -14,11 +46,11 @@ const proxy = require('./testProxy')
 
 
 const getRandomMessage = () => {
-  const mess = ["Hey, are you by any chance selling ESO gold? This message is automated, so feel free to ignore it if it doesn't apply to you. Much love!", 
-  "Hello! Just a quick question – are you selling ESO gold? Please don't worry if you're not interested or if we're already in touch. Sending you a virtual hug!",
-  "Greetings! I'm curious, do you have ESO gold for sale? Please don't mind this automated message if it's not relevant to you or if we're already chatting. Sending a heart your way!",
-  "Hi there! Selling ESO gold, perhaps? No worries if this doesn't relate to you or if we're already in communication. Sending some positivity your way!", 
-  "Hey, quick question: are you selling ESO gold? Just a heads up that this message is automated, so don't worry if it's not applicable to you or if we're already connected. Sending you some virtual love!"]
+  const mess = ['Hi! Sorry to disturb you. Are you selling FFXIV weapons?',
+ 'Hello, I am from Bun Stuff HQ server. I am just wondering if you are interested in selling gear, food or potions?',
+'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell FF14 items?',
+'Heyyy, I hope you dont mind. I am currently looking to buy FF14 items for a fresh start of season',
+'Nice to meet yaaaa. I am looking to buy items from FFXIV, if you are interested, please let me knowww']
 
 const random = Math.floor(Math.random() * mess.length)
 
@@ -28,6 +60,8 @@ return  { random_message }
 }
 
  
+
+
 
 function getRandomInclusive(min, max) {
 
@@ -140,7 +174,7 @@ async function sendMessage() {
   
 
   for (let [index, mem] of mem_list.entries()) {
-    if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1096344243825553439') {
+    if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1137318873117495366') {
         
 /*       client1.users.fetch(mem[1].user.id, false).then((user) => {
         user.send(mess)
@@ -160,9 +194,6 @@ async function sendMessage() {
         else if (index == 0){
             await sleep(getRandomInclusive(1000, 5000))
         }
-        else if (index % 30 == 0 && index != 0){
-            await proxy.changeProxy()
-        }
         else {
           await sleep(getRandomInclusive(180000.901235434, 300000.021128729))
         }
@@ -175,11 +206,14 @@ async function sendMessage() {
             await user.send(random_message)
             console.log(` Message sent to ${ user.username } `) 
          } catch (err) {
+            await solveCaptcha()
             console.log(`Internal stack error found at sending message`)
             console.log(err)
          }
      } )
-     .catch(err => console.log(`I found an error ${err.message}`))
+     .catch(err => 
+      console.log(`I found an error ${err.message}`)
+      )
 
 
      await giveItABreak()
@@ -195,7 +229,8 @@ client1.on('ready', sendMessage)
 
 
 
-client1.login('MTA5NjEwMDgzODI2MDM1MTA3Nw.GkavKi.KaocNQUuGszDsRhpdM1yxzEmlKESLQ0jUzMMfw')
+client1.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GBZmfj.QEkFn7YS-g6Z0DW07dvofp6_DAjLoqr6OJudOg')
+
 
 
 module.exports = scrapeJob

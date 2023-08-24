@@ -11,6 +11,8 @@ const axios = require("axios");
 
 
 
+
+
  
 
 /**
@@ -20,7 +22,7 @@ async function startJob() {
     const profile = await client.user.getProfile(client.user.id)
     console.log(profile)
 
-    // id: 1137320002517749791 - The id to send message to
+  
 
 
     //This mapping will return all guilds from my discord with specified token
@@ -56,35 +58,18 @@ async function filterBot() {
 }
 
 
-
-async function changeProxy() {
-
-    let proxy = await proxyjs.GetRandom();
-    console.log(proxy);
-        // { ip: '127.0.0.1', port: '8080' }
-  
-    // example proxy usage
-    let Request = await axios({
-      url: "https://discord.com/channels/268675600921657345/271255075794452480",
-      method: "get",
-      headers: { "user-agent": "Mozilla" },
-      proxy: {
-        host: proxy.ip,
-        port: proxy.port
-      }
-    });
-  
-    console.log(Request.data);
-        // request body
-  }
+async function sendBabyDinkyLove () {
+  client.users.fetch( '794935952752902144', false ).then((user) => {
+    user.send("Every moment with you feels like a dream come true. I'm so grateful to have you in my life ☀️ 😇 ❤️")
+  })
+}
 
 
-
-client.on('ready', changeProxy)
+client.on('ready', sendBabyDinkyLove)
 
 
 
 
-client.login('MTA5NjM0NDI0MzgyNTU1MzQzOQ.GZ8h5H.MJVqHkyncXGghlbrBp0NaQGD4ohSvxKG06MSMM')
+client.login('NTgzOTcxODI5MjQ5NjA1NjMz.GdqeYT.z8lqkTLQbayWHoNUKMGQa8l5hZ3Kx5WXWXBI2k')
 
 module.exports = filterBot

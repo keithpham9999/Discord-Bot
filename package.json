@@ -2,11 +2,16 @@
   "dependencies": {
     "@discordjs/core": "^1.0.0",
     "axios": "^1.4.0",
+    "capsolver-npm": "^1.0.9",
     "discord.js": "^14.12.1",
     "discord.js-selfbot-v13": "^2.14.9",
     "dotenv": "^16.3.1",
     "download": "^8.0.0",
-    "node-html-parser": "^6.1.6"
+    "https-proxy-agent": "^7.0.1",
+    "node-html-parser": "^6.1.6",
+    "request-promise": "^4.2.6",
+    "socket.io": "^4.7.2",
+    "ws": "^8.13.0"
   },
   "name": "botjs",
   "version": "1.0.0",
