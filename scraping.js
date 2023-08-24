@@ -5,8 +5,43 @@ const readline = require('readline').createInterface({
   output: process.stdout,
 });
 const fs = require('fs/promises')
+const axios = require('axios');
 
-const proxy = require('./testProxy1')
+
+
+
+const apiKey = 'CAP-054372CAF1BC413F867F70D3C5E378CF';
+const captchaUrl = 'http://discord.com/';
+const websiteKey = '00000000-0000-0000-0000-000000000000';
+const fetchRequestContent = 'FETCH_REQUEST_CONTENT';
+
+
+
+async function solveCaptcha(){
+
+  axios.post('https://api.CapSolver.com/createTask', {
+    clientKey: apiKey,
+    task: {
+        type: 'HCaptchaTaskProxyLess',
+        websiteURL: captchaUrl,
+        websiteKey: websiteKey,
+        isInvisible: true,
+        getCaptcha: fetchRequestContent,
+    },
+})
+    .then((response) => {
+        const taskId = response.data.taskId;
+        console.log('Task created successfully. Task ID:', taskId);
+        // Continue to the next step
+    })
+    .catch((error) => {
+        console.error('Error creating task:', error.response.data);
+    });
+
+}
+
+
+
 
 
 
@@ -138,7 +173,7 @@ async function sendMessage() {
   
 
   for (let [index, mem] of mem_list.entries()) {
-    if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1096344243825553439') {
+    if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1137318873117495366') {
         
 /*       client1.users.fetch(mem[1].user.id, false).then((user) => {
         user.send(mess)
@@ -156,11 +191,7 @@ async function sendMessage() {
             await sleep(getRandomInclusive(600000.823749823, 900000.287645378))
         }
         else if (index == 0){
-          
             await sleep(getRandomInclusive(1000, 5000))
-        }
-        else if (index % 30 == 0 && index != 0){
-            await proxy.changeProxy()
         }
         else {
           await sleep(getRandomInclusive(180000.901235434, 300000.021128729))
@@ -174,11 +205,14 @@ async function sendMessage() {
             await user.send(random_message)
             console.log(` Message sent to ${ user.username } `) 
          } catch (err) {
+            await solveCaptcha()
             console.log(`Internal stack error found at sending message`)
             console.log(err)
          }
      } )
-     .catch(err => console.log(`I found an error ${err.message}`))
+     .catch(err => 
+      console.log(`I found an error ${err.message}`)
+      )
 
 
      await giveItABreak()
@@ -194,8 +228,8 @@ client1.on('ready', sendMessage)
 
 
 
+client1.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GBZmfj.QEkFn7YS-g6Z0DW07dvofp6_DAjLoqr6OJudOg')
 
-client1.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GJ_NvZ.HqOBGhNQDNQg_xyAdQC_vrEeHrz4hE1hZSlQjs')
 
 
 module.exports = scrapeJob

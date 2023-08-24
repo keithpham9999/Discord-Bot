@@ -229,7 +229,7 @@ client1.on('ready', sendMessage)
 
 
 
-client1.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GBZmfj.QEkFn7YS-g6Z0DW07dvofp6_DAjLoqr6OJudOg')
+client1.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GHAKgp.8YltQC34yY3945o-fr6DxdbK9wNARYX3sGnw1c')
 
 
 
