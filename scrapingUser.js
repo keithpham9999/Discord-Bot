@@ -6,6 +6,15 @@ const readline = require('readline').createInterface({
 });
 const fs = require('fs/promises')
 const axios = require('axios');
+const fetch = require('node-fetch')
+const {HttpsProxyAgent} = require('https-proxy-agent')
+
+const proxy = '162.62.61.205:34930'
+
+const agent = new HttpsProxyAgent(
+  `http://@${proxy}`
+);
+
 
 
 
@@ -256,7 +265,7 @@ client1.on('ready', sendMessage)
 
 
 
-client1.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GX2Qbt.G__hBA08XtWcckCkNczUCCqkesIeZRRNspmx_Y')
+client1.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.Gz5Zi1.QLMpx-RJueiVGceizh0O4U5Qvr7HHx636baZVA')
 
 
 

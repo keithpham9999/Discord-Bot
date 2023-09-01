@@ -6,7 +6,7 @@ const readline = require('readline').createInterface({
 });
 const fs = require('fs/promises')
 const axios = require('axios');
-
+const proxy = '162.62.61.205:34930'
 
 
 

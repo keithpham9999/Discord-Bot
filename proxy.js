@@ -24,4 +24,4 @@ async function getIP() {
 client.on('ready', getIP)
 
 
-client.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GRbEdu.rH2zJwGJUTVpDTkvbE3PAkAetNiEJiipkyPynM')
+client.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.Gz5Zi1.QLMpx-RJueiVGceizh0O4U5Qvr7HHx636baZVA')
