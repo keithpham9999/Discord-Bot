@@ -46,11 +46,11 @@ async function solveCaptcha(){
 
 
 const getRandomMessage = () => {
-  const mess = ['Hi! Sorry to disturb you. Are you selling FFXIV weapons?',
- 'Hello, I am from Bun Stuff HQ server. I am just wondering if you are interested in selling gear, food or potions?',
-'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell FF14 items?',
-'Heyyy, I hope you dont mind. I am currently looking to buy FF14 items for a fresh start of season',
-'Nice to meet yaaaa. I am looking to buy items from FFXIV, if you are interested, please let me knowww']
+  const mess = ["Hi, I hope you dont minddd. Are you selling ESO gold by any chance????",
+ "Hellooooo, I hope it's okay with you. Are you possibly offering ESO gold for sale?",
+"Greetingsssss, I trust there's no issue. Do you happen to have ESO gold available for sale??",
+"Hiiiii, I hope you're fine with this question. Are you selling ESO gold at all?",
+"Hey thereeee, I hope it's alright with you. Is there a chance you're selling ESO gold????"]
 
 const random = Math.floor(Math.random() * mess.length)
 
@@ -173,7 +173,7 @@ async function sendMessage() {
   
 
   for (let [index, mem] of mem_list.entries()) {
-    if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1137318873117495366') {
+    if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1096100838260351077') {
         
 /*       client1.users.fetch(mem[1].user.id, false).then((user) => {
         user.send(mess)
@@ -224,11 +224,11 @@ async function sendMessage() {
 
 }
 
-client1.on('ready', sendMessage)
+client1.on('ready', scrapeJob)
 
 
 
-client1.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.GBZmfj.QEkFn7YS-g6Z0DW07dvofp6_DAjLoqr6OJudOg')
+client1.login('MTA5NjEwMDgzODI2MDM1MTA3Nw.G87Im0.g7Q6HMM54WfzYxjuLZG3EH8_59PNUUVpmv4_8A')
 
 
 
