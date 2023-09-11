@@ -9,21 +9,20 @@ const axios = require('axios');
 const fetch = require('node-fetch')
 const {HttpsProxyAgent} = require('https-proxy-agent')
 
-const proxy = '162.62.61.205:34930'
 
-const agent = new HttpsProxyAgent(
-  `http://@${proxy}`
-);
+
 
 
 
 
 const apiKey = 'CAP-054372CAF1BC413F867F70D3C5E378CF';
-const captchaUrl = 'https://newassets.hcaptcha.com/captcha/v1/937a50f/static/hcaptcha.html';
+const captchaUrl = 'https://discord.com/';
 const websiteKey = '00000000-0000-0000-0000-000000000000';
-const fetchRequestContent = 'fetch("https://hcaptcha.com/checksiteconfig?v=937a50f&host=discord.com&sitekey=f5561ba9-8f1e-40ca-9b5b-a0b3f719ef34&sc=1&swa=1&spst=1", { "headers": { "accept": "application/json", "accept-language": "en,vi-VN;q=0.9,vi;q=0.8", "content-type": "text/plain", "sec-ch-ua": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\"", "sec-ch-ua-mobile": "?0", "sec-ch-ua-platform": "\"Windows\"", "sec-fetch-dest": "empty", "sec-fetch-mode": "cors", "sec-fetch-site": "same-site", "cookie": "hmt_id=139f8251-50be-4a34-b429-1495cfb00d52", "Referer": "https://newassets.hcaptcha.com/", "Referrer-Policy": "strict-origin-when-cross-origin" }, "body": null, "method": "POST" });';
 
 
+const proxyWebType = 'http'
+const proxyIP = '101.32.166.145'
+const proxyWebPort = 24953
 
 
 
@@ -37,11 +36,13 @@ async function solveCaptcha() {
   axios.post('https://api.CapSolver.com/createTask', {
     clientKey: apiKey,
     task: {
-      type: 'HCaptchaTaskProxyLess',
+      type: 'HCaptchaTurboTask',
       websiteURL: captchaUrl,
       websiteKey: websiteKey,
-      isInvisible: true,
-      getCaptcha: fetchRequestContent,
+
+      proxyType: proxyWebType,
+      proxyAddress: proxyIP,
+      proxyPort: proxyWebPort,
     },
   })
     .then((response) => {
@@ -66,11 +67,11 @@ async function solveCaptcha() {
  * @returns random_message
  */
 const getRandomMessage = () => {
-  const mess = ['Hi! Sorry to disturb you. Are you selling FFXIV Gil?',
-    'Hello, I am from Bun Stuff HQ server. I am just wondering if you are interested in selling gear, food or potions?',
-    'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell FF14 items?',
-    'Heyyy, I hope you dont mind. I am currently looking to buy FF14 items for a fresh start of season',
-    'Nice to meet yaaaa. I am looking to buy gil from FFXIV, if you are interested, please let me knowww']
+  const mess = ['Hi! Sorry to disturb you. Are you selling Albion items?',
+    'Hello, I am from Albion Market server and I saw that you were here. I am just wondering if you are interested in selling items?',
+    'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell Albion items?',
+    'Heyyy, I hope you dont mind. I am currently looking to buy Albion items for a fresh start of season',
+    'Nice to meet yaaaa. I am looking to buy items from Albion, if you are interested, please let me knowww']
 
   const random = Math.floor(Math.random() * mess.length)
 
@@ -118,7 +119,7 @@ async function scrapeJob() {
 
     const all_mem = await all_guilds[i].members.fetch()   //Change guild index to change guild
     const mem_list = Array.from(all_mem)
-    console.log('\nGuild index: ' + i + '\n  Guild name: ' + all_guilds[i].name + '\nAll members including bots: ' + mem_list.length + '\n')
+    console.log('\nGuild index: ' + i + '\nGuild name: ' + all_guilds[i].name + '\nAll members including bots: ' + mem_list.length + '\n')
 
   }
 
@@ -207,8 +208,8 @@ async function sendMessage() {
 
 
     for (let [index, mem] of mem_list.entries()) {
-      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1137318873117495366') {
-
+      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1096344243825553439') {
+                                                                                        // Change userID every time log in into a new account
         /*       client1.users.fetch(mem[1].user.id, false).then((user) => {
                 user.send(mess)
                 console.log('Message sent to ' + user.username)
@@ -265,7 +266,7 @@ client1.on('ready', sendMessage)
 
 
 
-client1.login('MTEzNzMxODg3MzExNzQ5NTM2Ng.Gz5Zi1.QLMpx-RJueiVGceizh0O4U5Qvr7HHx636baZVA')
+client1.login('MTA5NjM0NDI0MzgyNTU1MzQzOQ.G-Kjat.O36Bs4tnfXcL8sd6eCe19yVeMbJbH_TuGCn6Ak')
 
 
 
