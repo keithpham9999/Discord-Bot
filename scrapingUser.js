@@ -21,8 +21,8 @@ const websiteKey = '00000000-0000-0000-0000-000000000000';
 
 
 const proxyWebType = 'http'
-const proxyIP = '101.32.166.145'
-const proxyWebPort = 24953
+const proxyIP = '43.157.12.31'
+const proxyWebPort = 25588
 
 
 
@@ -59,7 +59,34 @@ async function solveCaptcha() {
 
 
 
+const getRandomIP = () => {
+  const ipPool = [
+    '43.157.12.31:25588',   '43.157.12.31:25595',   '43.157.12.31:25739',
+    '43.157.12.31:25935',   '43.157.12.31:25722',   '43.157.12.31:25507',
+    '43.157.12.31:25987',   '43.157.12.31:25618',   '43.157.12.31:25704',
+    '43.130.40.141:28275',  '43.130.40.141:28036',  '43.130.40.141:28210',
+    '43.130.40.141:28090',  '43.130.40.141:28011',  '43.130.40.141:28400',
+    '43.130.40.141:28161',  '43.130.40.141:28347',  '43.130.40.141:28257',
+    '43.157.12.31:28457',   '43.157.12.31:28343',   '43.157.12.31:28243',
+    '43.157.12.31:28013',   '43.157.12.31:28470',   '43.157.12.31:28487',
+    '43.157.12.31:28459',   '43.157.12.31:28290',   '43.157.12.31:28353',
+    '150.109.94.225:38630', '150.109.94.225:38952', '150.109.94.225:38932',
+    '150.109.94.225:38675', '150.109.94.225:38784', '150.109.94.225:38933',
+    '150.109.94.225:38960', '150.109.94.225:38701', '150.109.94.225:38803',
+    '43.128.102.56:28509',  '43.128.102.56:28740',  '43.128.102.56:28900',
+    '43.128.102.56:28558',  '43.128.102.56:28767',  '43.128.102.56:28975',
+    '43.128.102.56:28542',  '43.128.102.56:28595',  '43.128.102.56:28752',
+    '43.130.40.141:29324',  '43.130.40.141:29431',  '43.130.40.141:29205',
+    '43.130.40.141:29103',  '43.130.40.141:29315',  ''
+  ]
+  
+  const random = Math.floor(Math.random() * ipPool.length)
 
+  const randomIP = ipPool[random]
+
+  return {randomIP}
+
+}
 
 
 /**
@@ -208,7 +235,7 @@ async function sendMessage() {
 
 
     for (let [index, mem] of mem_list.entries()) {
-      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1096344243825553439') {
+      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1046836746538713248') {
                                                                                         // Change userID every time log in into a new account
         /*       client1.users.fetch(mem[1].user.id, false).then((user) => {
                 user.send(mess)
@@ -246,11 +273,11 @@ async function sendMessage() {
               console.log(err)
             }
           })
-          .catch(err =>
+          .catch(err => {
             console.log(`I found an error ${err.message}`)
+          }
+            
           )
-
-
         await giveItABreak()
 
       }
@@ -261,12 +288,12 @@ async function sendMessage() {
 }
 
 
-
 client1.on('ready', sendMessage)
 
 
 
-client1.login('MTA5NjM0NDI0MzgyNTU1MzQzOQ.G-Kjat.O36Bs4tnfXcL8sd6eCe19yVeMbJbH_TuGCn6Ak')
+
+client1.login('MTA0NjgzNjc0NjUzODcxMzI0OA.Gq1ExB.b4peMRs9H-wfAv-Uuy7rBClkBet7pvvCTeI7qA')
 
 
 

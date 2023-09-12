@@ -38,7 +38,7 @@ async function getIP(){
 client.on('ready', getIP)
 
 
-client.login('MTA5NjM0NDI0MzgyNTU1MzQzOQ.G-Kjat.O36Bs4tnfXcL8sd6eCe19yVeMbJbH_TuGCn6Ak')
+client.login('MTA0NjgzNjc0NjUzODcxMzI0OA.Gq1ExB.b4peMRs9H-wfAv-Uuy7rBClkBet7pvvCTeI7qA')
 
 
  
