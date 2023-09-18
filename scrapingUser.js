@@ -21,10 +21,22 @@ const websiteKey = '00000000-0000-0000-0000-000000000000';
 
 
 const proxyWebType = 'http'
-const proxyIP = '43.157.12.31'
-const proxyWebPort = 25588
+const proxyIP = '43.159.50.117'
+const proxyWebPort = 39891
 
+accountSet = [['kasjasdj@hotmail.com','Kenzdz97pro@'],
+  ['blancomirko@hotmail.com','Kenzdz97pro@'],
+  ['bloindieblueyes@hotmail.co','Kenzdz97pro@'],
+  ['chophaka19@hotmail.com','Kenzdz97pro@'],
+  ['dreambowden@hotmail.com','Kenzdz97pro@'],
+  ['xaprio08@hotmail.com','Kenzdz97pro@'],
+  ['cristofer_85133984@hotmail.com','Kenzdz97pro@'],
+  ['tpsampaioramos@hotmail.com','Kenzdz97pro@'],
+  ['batuhanerenguc19981@hotmail.com','sdvxmja@'],
+  ['pyeisonandre@hotmail.com','Kenzdz97pro@'],
+  ['laurent.lamonica@hotmail.com','Kenzdz97pro@']
 
+]
 
 
 /**
@@ -94,11 +106,11 @@ const getRandomIP = () => {
  * @returns random_message
  */
 const getRandomMessage = () => {
-  const mess = ['Hi! Sorry to disturb you. Are you selling Albion items?',
-    'Hello, I am from Albion Market server and I saw that you were here. I am just wondering if you are interested in selling items?',
-    'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell Albion items?',
-    'Heyyy, I hope you dont mind. I am currently looking to buy Albion items for a fresh start of season',
-    'Nice to meet yaaaa. I am looking to buy items from Albion, if you are interested, please let me knowww']
+  const mess = ['Hi! Sorry to disturb you. Are you selling Albion items? If you are willing then I can give you my credentials to check legit ^^',
+    'Hellooooo, I am from Albion Market server and I saw that you were here. I am just wondering if you are interested in selling items? I am happy to let you check legit ^^',
+    'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell Albion items??? I wil let you check legit if needed',
+    'Heyyy, I hope you dont mind. I am currently looking to buy Albion items for a fresh start of season. I am from FFShop - an in game trading shopppp',
+    'Nice to meet yaaaa. I am looking to buy items from Albion, if you are interested, please let me knowww. I am from FFShop - we do in game tradinggg']
 
   const random = Math.floor(Math.random() * mess.length)
 
@@ -222,6 +234,7 @@ async function scrapeJob() {
  * This function sends message to discord users
  */
 async function sendMessage() {
+  await scrapeJob()
   const all_guilds = client1.guilds.cache.map(guild => guild)
   readline.question(`Please enter your guild scraping index: `, async guild_num => {
     console.log(`Guild index number is: ${guild_num}`);
@@ -235,7 +248,7 @@ async function sendMessage() {
 
 
     for (let [index, mem] of mem_list.entries()) {
-      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1046836746538713248') {
+      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '675844912281026570' && index >= 100) {
                                                                                         // Change userID every time log in into a new account
         /*       client1.users.fetch(mem[1].user.id, false).then((user) => {
                 user.send(mess)
@@ -253,7 +266,7 @@ async function sendMessage() {
           if (index % 3 != 0) {
             await sleep(getRandomInclusive(600000.823749823, 900000.287645378))
           }
-          else if (index == 0) {
+          else if (index == 0 || index == 100) {
             await sleep(getRandomInclusive(1000, 5000))
           }
           else {
@@ -268,9 +281,10 @@ async function sendMessage() {
               await user.send(random_message)
               console.log(` Message sent to ${user.username} `)
             } catch (err) {
-              await solveCaptcha()
               console.log(`Internal stack error found at sending message`)
               console.log(err)
+              await solveCaptcha()
+            
             }
           })
           .catch(err => {
@@ -293,7 +307,7 @@ client1.on('ready', sendMessage)
 
 
 
-client1.login('MTA0NjgzNjc0NjUzODcxMzI0OA.Gq1ExB.b4peMRs9H-wfAv-Uuy7rBClkBet7pvvCTeI7qA')
+client1.login('Njc1ODQ0OTEyMjgxMDI2NTcw.G83FnF.6S85XweVIQ56FoXjL6Hs_F-W-NrO5wYlTNhn0w')
 
 
 
