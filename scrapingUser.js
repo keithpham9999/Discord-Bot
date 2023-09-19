@@ -21,13 +21,13 @@ const websiteKey = '00000000-0000-0000-0000-000000000000';
 
 
 const proxyWebType = 'http'
-const proxyIP = '43.159.50.117'
-const proxyWebPort = 39891
+const proxyIP = '43.157.12.31'
+const proxyWebPort = 25935
 
 
 // This set contains an array with each account including email, password, user discrod ID and user discord token respectively
 // !!!NOTE!!! Discord tokens always need to be retrieved again after resetting password
-accountFirstSet = [['kasjasdj@hotmail.com','Kenzdz97pro@', 623735807504809986, 'NjIzNzM1ODA3NTA0ODA5OTg2.GiliXO.TzWGrHPLAHJLWxZjfplt3QnbEpGbwCqIL19djc'],
+accountFirstSet = [['kasjasdj@hotmail.com','Kenzdz97pro@', 623735807504809986, 'NjIzNzM1ODA3NTA0ODA5OTg2.G1E6qK.ncH5sc96XIRo-A5u5U-oobcFiQSBmWnyMfG8x8'],
   ['blancomirko@hotmail.com','Kenzdz97pro@', 675844912281026570, 'Njc1ODQ0OTEyMjgxMDI2NTcw.GC_uBA.xGnmEczlvFx-kY3rpE4rGhOpS9nvwqSoEwAHeg'],
   ['bloindieblueyes@hotmail.co','Kenzdz97pro@', 426133176231133184, 'NDI2MTMzMTc2MjMxMTMzMTg0.GVs0dq.9vddmyl5gTJoCP4BKQS6drgNAnyZwe4tQyGQ0I'],
   ['chophaka19@hotmail.com','Kenzdz97pro@', 414103428738973706, 'NDE0MTAzNDI4NzM4OTczNzA2.G5_ttl.F6sy9BMgRFfk3GplkQFnivVIvdrjmokLSbfZEo'],
@@ -108,11 +108,11 @@ const getRandomIP = () => {
  * @returns random_message
  */
 const getRandomMessage = () => {
-  const mess = ['Hi! Sorry to disturb you. Are you selling Albion items? If you are willing then I can give you my credentials to check legit ^^',
-    'Hellooooo, I am from Albion Market server and I saw that you were here. I am just wondering if you are interested in selling items? I am happy to let you check legit ^^',
-    'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell Albion items??? I will let you check legit if needed',
-    'Heyyy, I hope you dont mind. I am currently looking to buy Albion items for a fresh start of season. I am from FFShop - an in game trading shopppp',
-    'Nice to meet yaaaa. I am looking to buy items from Albion, if you are interested, please let me knowww. I am from FFShop - we do in game tradinggg']
+  const mess = ['Hi! Sorry to disturb you. Are you selling New World items? If you are willing then I can give you my credentials to check legit ^^',
+    'Hellooooo, I am from New World Market server and I saw that you were here. I am just wondering if you are interested in selling items? I am happy to let you check legit ^^',
+    'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell New World items??? I will let you check legit if needed',
+    'Heyyy, I hope you dont mind. I am currently looking to buy New World items for a fresh start of season. I am from FFShop - an in game trading shopppp',
+    'Nice to meet yaaaa. I am looking to buy items from New World, if you are interested, please let me knowww. I am from FFShop - we do in game tradinggg']
 
   const random = Math.floor(Math.random() * mess.length)
 
@@ -309,7 +309,7 @@ client1.on('ready', sendMessage)
 
 
 
-client1.login('NjIzNzM1ODA3NTA0ODA5OTg2.GiliXO.TzWGrHPLAHJLWxZjfplt3QnbEpGbwCqIL19djc')
+client1.login('NjIzNzM1ODA3NTA0ODA5OTg2.G1E6qK.ncH5sc96XIRo-A5u5U-oobcFiQSBmWnyMfG8x8')
 
 
 
