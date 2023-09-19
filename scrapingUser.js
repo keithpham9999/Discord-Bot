@@ -24,17 +24,19 @@ const proxyWebType = 'http'
 const proxyIP = '43.159.50.117'
 const proxyWebPort = 39891
 
-accountSet = [['kasjasdj@hotmail.com','Kenzdz97pro@'],
-  ['blancomirko@hotmail.com','Kenzdz97pro@'],
-  ['bloindieblueyes@hotmail.co','Kenzdz97pro@'],
-  ['chophaka19@hotmail.com','Kenzdz97pro@'],
-  ['dreambowden@hotmail.com','Kenzdz97pro@'],
-  ['xaprio08@hotmail.com','Kenzdz97pro@'],
-  ['cristofer_85133984@hotmail.com','Kenzdz97pro@'],
-  ['tpsampaioramos@hotmail.com','Kenzdz97pro@'],
-  ['batuhanerenguc19981@hotmail.com','sdvxmja@'],
-  ['pyeisonandre@hotmail.com','Kenzdz97pro@'],
-  ['laurent.lamonica@hotmail.com','Kenzdz97pro@']
+
+// This set contains an array with each account including email, password, user discrod ID and user discord token respectively
+// !!!NOTE!!! Discord tokens always need to be retrieved again after resetting password
+accountFirstSet = [['kasjasdj@hotmail.com','Kenzdz97pro@', 623735807504809986, 'NjIzNzM1ODA3NTA0ODA5OTg2.GiliXO.TzWGrHPLAHJLWxZjfplt3QnbEpGbwCqIL19djc'],
+  ['blancomirko@hotmail.com','Kenzdz97pro@', 675844912281026570, 'Njc1ODQ0OTEyMjgxMDI2NTcw.GC_uBA.xGnmEczlvFx-kY3rpE4rGhOpS9nvwqSoEwAHeg'],
+  ['bloindieblueyes@hotmail.co','Kenzdz97pro@', 426133176231133184, 'NDI2MTMzMTc2MjMxMTMzMTg0.GVs0dq.9vddmyl5gTJoCP4BKQS6drgNAnyZwe4tQyGQ0I'],
+  ['chophaka19@hotmail.com','Kenzdz97pro@', 414103428738973706, 'NDE0MTAzNDI4NzM4OTczNzA2.G5_ttl.F6sy9BMgRFfk3GplkQFnivVIvdrjmokLSbfZEo'],
+  ['dreambowden@hotmail.com','Kenzdz97pro@', 1072025999518224384, 'MTA3MjAyNTk5OTUxODIyNDM4NA.GGNlfn.8h9WCXNUkkKTzXX-5H-URA3LdjwJ7_GDq2OrhM'],
+  ['xaprio08@hotmail.com','Kenzdz97pro@', 984227881850929162, 'OTg0MjI3ODgxODUwOTI5MTYy.GNJKvR.qoUtXegVJ38CkOqrfcjv5ha2_XAIXLLfeVxd98'],
+  ['cristofer_85133984@hotmail.com','Kenzdz97pro@', 828459051498209300, 'ODI4NDU5MDUxNDk4MjA5MzAw.GSOvpb.7ppnUicviWQiHwOEv9vhUtG0-LvKxnz7JcEvXo'],
+  ['tpsampaioramos@hotmail.com','Kenzdz97pro@', 711485597427957760, 'NzExNDg1NTk3NDI3OTU3NzYw.G0c9SY.9UWse3V4jyOUKN_WDkrxjZ8vh5BOI5gD33aP1o'],
+  ['batuhanerenguc19981@hotmail.com','sdvxmja@', 459468404751990787, 'NDU5NDY4NDA0NzUxOTkwNzg3.G7B7nr.kBEm37i84oe7FvD7lfPicA3HCaQsCbL6__2tQQ'],
+  ['pyeisonandre@hotmail.com','Kenzdz97pro@', 852155933538254859, 'ODUyMTU1OTMzNTM4MjU0ODU5.GKSYVE.QGVDfpEQgiL_18r0DbFIgYqrxRrLztoFnLk708']
 
 ]
 
@@ -108,7 +110,7 @@ const getRandomIP = () => {
 const getRandomMessage = () => {
   const mess = ['Hi! Sorry to disturb you. Are you selling Albion items? If you are willing then I can give you my credentials to check legit ^^',
     'Hellooooo, I am from Albion Market server and I saw that you were here. I am just wondering if you are interested in selling items? I am happy to let you check legit ^^',
-    'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell Albion items??? I wil let you check legit if needed',
+    'Good morninggg, I do not know what time it is from your time zone. I do not want to bother you but do you by any chance sell Albion items??? I will let you check legit if needed',
     'Heyyy, I hope you dont mind. I am currently looking to buy Albion items for a fresh start of season. I am from FFShop - an in game trading shopppp',
     'Nice to meet yaaaa. I am looking to buy items from Albion, if you are interested, please let me knowww. I am from FFShop - we do in game tradinggg']
 
@@ -248,7 +250,7 @@ async function sendMessage() {
 
 
     for (let [index, mem] of mem_list.entries()) {
-      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '675844912281026570' && index >= 100) {
+      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '623735807504809986' && index < 24) {
                                                                                         // Change userID every time log in into a new account
         /*       client1.users.fetch(mem[1].user.id, false).then((user) => {
                 user.send(mess)
@@ -292,7 +294,7 @@ async function sendMessage() {
           }
             
           )
-        await giveItABreak()
+        await sleep(3600000)
 
       }
     }
@@ -307,7 +309,7 @@ client1.on('ready', sendMessage)
 
 
 
-client1.login('Njc1ODQ0OTEyMjgxMDI2NTcw.G83FnF.6S85XweVIQ56FoXjL6Hs_F-W-NrO5wYlTNhn0w')
+client1.login('NjIzNzM1ODA3NTA0ODA5OTg2.GiliXO.TzWGrHPLAHJLWxZjfplt3QnbEpGbwCqIL19djc')
 
 
 
