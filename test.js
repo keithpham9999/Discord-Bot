@@ -2,45 +2,27 @@
  * This is a test file with functions for testing purposes only
  */
 
-const { Client } = require('discord.js-selfbot-v13')
-const client = new Client({ checkUpdate: false })
+const { getIPandPort, getProxyForDiscord, getProxy } = require('./proxy')
 
-const { HttpsProxyAgent } = require('https-proxy-agent')
-const axios = require('axios') 
-let proxyArray = []
+async function autoDiscord(){
+  const {ip, port, ar} = await getIPandPort()
 
-
-/**
- * This function retrives IP addresses from IP pool of LunaProxy
- */
-async function getIP(){
-  try {
-    const url = 'http://tq.lunaproxy.com/getflowip?neek=1074548&num=50&type=1&sep=1&regions=all&ip_si=2&level=1&sb='
-    const response = await axios.get(url)
-    const array = (response.data)
-    const newArray = array.split('\r\n')
-    proxyArray = proxyArray.concat(newArray)
-    console.log(newArray)
-    console.log(proxyArray)
-  }
-  catch (err) {
-    console.log(err)
-  }
-  
+  console.log(ip, port, ar)
 }
 
 
+const tryHard = () => {
+  const proxy = "43.153.71.184:31087"
+  const host = proxy.split(':')[0]
+  const ip = proxy.split(':')[1]
+  console.log(host, ip)
+}
+
+const testProxy = async () => {
+  const {host, port} = await getProxy()
+
+  console.log(host, port)
+}
 
 
-
-
-
-client.on('ready', getIP)
-
-
-client.login('MTA0NjgzNjc0NjUzODcxMzI0OA.Gq1ExB.b4peMRs9H-wfAv-Uuy7rBClkBet7pvvCTeI7qA')
-
-
- 
-
-
+testProxy()

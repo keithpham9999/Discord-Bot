@@ -228,7 +228,7 @@ client1.on('ready', scrapeJob)
 
 
 
-client1.login('MTA5NjEwMDgzODI2MDM1MTA3Nw.G87Im0.g7Q6HMM54WfzYxjuLZG3EH8_59PNUUVpmv4_8A')
+client1.login('')
 
 
 
