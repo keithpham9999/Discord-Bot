@@ -281,7 +281,7 @@ async function sendMessage() {
 
 
     for (let [index, mem] of mem_list.entries()) {
-      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '675844912281026570' && index > 48) {
+      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '1003001450160470000' && index > 432 && index < 456) {
                                                                                         // Change userID every time log in into a new account
         /*       client1.users.fetch(mem[1].user.id, false).then((user) => {
                 user.send(mess)
@@ -343,7 +343,7 @@ client1.on('ready', sendMessage)
 
 
 
-client1.login('')
+client1.login("MTAwMzAwMTQ1MDE2MDQ3NjE2MA.GR6Kmb.oDAdKnxm8VWtrOseVe_hCCLbZTr6QCHat2fkBk")
 
 
 

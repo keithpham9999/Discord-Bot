@@ -1,5 +1,8 @@
-function getToken(){
-    return ''
-}
+const {DiscordAuthWebsocket} = require('discord.js-selfbot-v13')
 
-module.exports = getToken 
+const wh = new DiscordAuthWebsocket()
+
+
+console.log(wh)
+
+

@@ -1,13 +1,13 @@
 const { Client } = require('discord.js-selfbot-v13')
-const client1 = new Client({ checkUpdate: false, })
+const client = new Client({ checkUpdate: false, })
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 const fs = require('fs/promises')
 const axios = require('axios');
-const fetch = require('node-fetch')
-const {HttpsProxyAgent} = require('https-proxy-agent')
+const { getProxyForDiscord } = require('../proxy')
+
 
 
 
@@ -19,6 +19,9 @@ const apiKey = 'CAP-054372CAF1BC413F867F70D3C5E378CF';
 const captchaUrl = 'https://discord.com/';
 const websiteKey = '00000000-0000-0000-0000-000000000000';
 
+const proxyWebType = 'http'
+let proxyIP
+let proxyWebPort
 
 
 // This set contains an array with each account including email, password, user discrod ID and user discord token respectively
@@ -37,102 +40,54 @@ accountFirstSet = [['kasjasdj@hotmail.com','Kenzdz97pro@', 623735807504809986],
 ]
 
 
+
+
+
+
+const getRandomIP = async () => {
+    const {host, port} = await getProxyForDiscord()
+
+    proxyIP = host
+    proxyWebPort = port
+  }
+setInterval(getRandomIP, 4800000)
+
+
+
+
+
+
 /**
  * This function will take captcha challenges by discord and solve them
  * Then it will return a reponse for the challenge
  */
 async function solveCaptcha() {
-
-  axios.post('https://api.CapSolver.com/createTask', {
-    clientKey: apiKey,
-    task: {
-      type: 'HCaptchaTurboTask',
-      websiteURL: captchaUrl,
-      websiteKey: websiteKey,
-
-      proxyType: proxyWebType,
-      proxyAddress: proxyIP,
-      proxyPort: proxyWebPort,
-    },
-  })
-    .then((response) => {
-      const taskId = response.data.taskId;
-      console.log('Task created successfully. Task ID:', taskId);
-      // Continue to the next step
+    axios.post('https://api.CapSolver.com/createTask', {
+      clientKey: apiKey,
+      task: {
+        type: 'HCaptchaTurboTask',
+        websiteURL: captchaUrl,
+        websiteKey: websiteKey,
+  
+        proxyType: proxyWebType,
+        proxyAddress: proxyIP,
+        proxyPort: proxyWebPort,
+      },
     })
-    .catch((error) => {
-      console.error('Error creating task:', error.response.data);
-    });
-
-}
-
-
-
-
-const getRandomIP = () => {
-    const ipPool = [
-      [ '43.159.50.117', '36914' ],
-      [ '43.159.50.117', '36856' ],
-      [ '43.159.50.117', '36644' ],
-      [ '43.159.50.117', '36579' ],
-      [ '43.159.50.117', '36911' ],
-      [ '43.159.50.117', '36681' ],
-      [ '43.159.50.117', '36796' ],
-      [ '43.159.50.117', '36981' ],
-      [ '43.159.50.117', '36966' ],
-      [ '43.157.21.32', '32784' ],
-      [ '43.157.21.32', '32614' ],
-      [ '43.157.21.32', '32705' ],
-      [ '43.157.21.32', '32995' ],
-      [ '43.157.21.32', '32838' ],
-      [ '43.157.21.32', '32624' ],
-      [ '43.157.21.32', '32712' ],
-      [ '43.157.21.32', '32979' ],
-      [ '43.157.21.32', '32864' ],
-      [ '43.130.10.70', '23400' ],
-      [ '43.130.10.70', '23189' ],
-      [ '43.130.10.70', '23367' ],
-      [ '43.130.10.70', '23285' ],
-      [ '43.130.10.70', '23408' ],
-      [ '43.130.10.70', '23446' ],
-      [ '43.130.10.70', '23017' ],
-      [ '43.130.10.70', '23242' ],
-      [ '43.130.10.70', '23312' ],
-      [ '43.157.21.32', '34193' ],
-      [ '43.157.21.32', '34387' ],
-      [ '43.157.21.32', '34141' ],
-      [ '43.157.21.32', '34420' ],
-      [ '43.157.21.32', '34372' ],
-      [ '43.157.21.32', '34411' ],
-      [ '43.157.21.32', '34156' ],
-      [ '43.130.10.70', '22980' ],
-      [ '43.130.10.70', '22881' ],
-      [ '43.130.10.70', '22684' ],
-      [ '43.130.10.70', '22968' ],
-      [ '43.130.10.70', '22596' ],
-      [ '43.130.10.70', '22774' ],
-      [ '43.130.10.70', '22652' ],
-      [ '43.130.10.70', '22610' ],
-      [ '43.130.10.70', '22736' ],
-      [ '43.128.71.89', '28833' ],
-      [ '43.128.71.89', '28666' ],
-      [ '43.128.71.89', '28504' ],
-      [ '43.128.71.89', '28734' ],
-      [ '43.128.71.89', '28613' ],
-    ]
-    
-    const random = Math.floor(Math.random() * ipPool.length)
-  
-    const randomIP = ipPool[random]
-    
-  
-    return {randomIP}
+      .then((response) => {
+        const taskId = response.data.taskId;
+        console.log('Task created successfully. Task ID:', taskId);
+        // Continue to the next step
+      })
+      .catch((error) => {
+        console.error('Error creating task:', error.response.data);
+      });
   
   }
-  
-  const proxyWebType = 'http'
-  const proxyIP = getRandomIP().randomIP[0]
-  const proxyWebPort = Number(getRandomIP().randomIP[1])
+
+
+
+
 
 
 /**
@@ -182,7 +137,7 @@ function sleep(ms) {
 async function scrapeJob() {
 
 
-  const all_guilds = client1.guilds.cache.map(guild => guild)
+  const all_guilds = client.guilds.cache.map(guild => guild)
 
   //console.log(all_guilds[2].name)
   //const all_mem = all_guilds[3].members.cache.map(member => member)
@@ -268,7 +223,7 @@ async function scrapeJob() {
  */
 async function sendMessage() {
   await scrapeJob()
-  const all_guilds = client1.guilds.cache.map(guild => guild)
+  const all_guilds = client.guilds.cache.map(guild => guild)
   readline.question(`Please enter your guild scraping index: `, async guild_num => {
     console.log(`Guild index number is: ${guild_num}`);
 
@@ -281,9 +236,10 @@ async function sendMessage() {
 
 
     for (let [index, mem] of mem_list.entries()) {
-      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != '675844912281026570' && index > 48) {
+      if (mem[1].user.bot == false && mem[1].user.system == false && mem[1].user.id != client.user.id && index > 400 && index < 425) {
+        
                                                                                         // Change userID every time log in into a new account
-        /*       client1.users.fetch(mem[1].user.id, false).then((user) => {
+        /*       client.users.fetch(mem[1].user.id, false).then((user) => {
                 user.send(mess)
                 console.log('Message sent to ' + user.username)
                 ` 
@@ -307,7 +263,7 @@ async function sendMessage() {
           }
         }
 
-        client1.users.fetch(mem[1].user.id, false)
+        client.users.fetch(mem[1].user.id, false)
           .then(async (user) => {
             try {
               const { random_message } = getRandomMessage()
@@ -325,7 +281,7 @@ async function sendMessage() {
           }
             
           )
-        await sleep(3600000)
+        await giveItABreak()
 
       }else{
         console.log('Message did not send!')
@@ -338,12 +294,10 @@ async function sendMessage() {
 }
 
 
-client1.on('ready', sendMessage)
 
+client.on('ready', sendMessage)
 
-
-
-client1.login('')
+client.login('NjE1MDk5MzA2NzE4MDAzMjIx.GCU5E8.ytVXF1UeRCVjpstoYJyy9_dSrzpRzlxkHYh48Y')
 
 
 

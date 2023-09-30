@@ -19,7 +19,7 @@ const getRandomIP = async () => {
   try {
     const url = 'https://tq.lunaproxy.com/getflowip?neek=1074548&num=50&type=1&sep=1&regions=all&ip_si=1&level=1&sb='
     const response = await axios.get(url)
-    //console.log(response)
+    console.log(response)
     const lunaIP = String(response.data)
     const ipArray = lunaIP.split('\r\n')
      
@@ -63,7 +63,7 @@ const getRawIP = async () => {
   try {
     const url = 'https://tq.lunaproxy.com/getflowip?neek=1074548&num=50&type=1&sep=1&regions=all&ip_si=1&level=1&sb='
     const response = await axios.get(url)
-    //console.log(response)
+    console.log(response)
     const lunaIP = String(response.data)
     const ipArray = lunaIP.split('\r\n')
      
@@ -72,6 +72,7 @@ const getRawIP = async () => {
     const random = Math.floor(Math.random() * ipArray.length)
   
     const randomIP = ipArray[random]
+
 
     return {randomIP, ipArray}
     
@@ -94,7 +95,7 @@ const getProxy = async () => {
   )
 
 
-  http.get('http://myip.lunaproxy.io/', { agent }, (res) => {
+  http.get('http://httpbin.org/ip', { agent }, (res) => {
   console.log('"response" event!', res.headers)
   res.pipe(process.stdout)
 })
@@ -106,7 +107,7 @@ return { host, port }
 }
 
 
-const getProxyForDiscord = async () => {
+const getProxyForDiscordWithData = async () => {
   const {randomIP, ipArray} = await getRawIP()
   const proxy = randomIP
   const host = proxy.split(':')[0]
@@ -129,6 +130,25 @@ return { host, port }
 
 
 
+const getProxyForDiscord = async () => {
+  const {randomIP, ipArray} = await getRawIP()
+  const proxy = randomIP
+  const host = proxy.split(':')[0]
+  const port = proxy.split(':')[1]
+
+  const agent = new HttpsProxyAgent(
+    `http://@${proxy}`
+  )
 
 
-module.exports = { getIPandPort, getProxyForDiscord, getProxy }
+  https.get('https://discord.com', { agent })
+
+return { host, port }
+
+
+}
+
+
+
+
+module.exports = { getIPandPort, getProxyForDiscord, getProxyForDiscordWithData, getProxy }
